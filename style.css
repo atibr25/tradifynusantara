@@ -1,0 +1,378 @@
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        
+        /* Utilitas Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ========================================
+   DARK MODE - TRADIFY NUSANTARA
+   Perbaikan kontras button & background
+   ======================================== */
+
+/* 1. SETUP VARIABLES */
+.dark {
+    --bg-primary: #1a1410;
+    --bg-secondary: #2c2420;
+    --bg-hover: #3d3430;
+    --text-primary: #f9f6f3;
+    --text-secondary: #c4b5a0;
+    --border-color: #3d3430;
+    /* Button-specific colors untuk kontras maksimal */
+    --btn-primary: #a67c52;
+    --btn-primary-hover: #c99966;
+    --btn-secondary: #4a3f35;
+    --btn-secondary-hover: #5c4d40;
+}
+
+/* 2. CORE DARK STYLES */
+.dark body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.dark nav {
+    background-color: rgba(26, 20, 16, 0.9);
+    border-color: var(--border-color);
+}
+
+/* 3. NAVIGATION HOVER EFFECTS */
+.dark nav a {
+    transition: all 0.3s ease;
+}
+
+.dark nav a:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border-radius: 0.375rem;
+}
+
+/* Mobile Menu */
+.dark #mobile-menu {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+.dark #mobile-menu a {
+    transition: background-color 0.3s ease;
+}
+
+.dark #mobile-menu a:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* 4. SECTIONS & UTILITIES */
+.dark section,
+.dark #products,
+.dark #about,
+.dark #contact,
+.dark footer {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+/* 5. INTERACTIVE ELEMENTS (CARDS) */
+.dark .bg-white {
+    background-color: var(--bg-secondary) !important;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dark .bg-white:hover {
+    background-color: var(--bg-hover) !important;
+    transform: translateY(-2px);
+}
+
+.dark .bg-brand-50 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* 6. TEXT COLORS */
+.dark .text-brand-900 {
+    color: var(--text-primary) !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500 {
+    color: var(--text-secondary) !important;
+}
+
+/* 7. BORDERS & INPUTS */
+.dark .border-brand-100 {
+    border-color: var(--border-color) !important;
+}
+
+.dark input, 
+.dark textarea,
+.dark select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: var(--btn-primary);
+    background-color: var(--bg-hover);
+    outline: none;
+}
+
+.dark input:hover,
+.dark textarea:hover,
+.dark select:hover {
+    border-color: var(--text-secondary);
+}
+
+/* Newsletter input khusus */
+.dark #newsletter-email {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* 8. MODALS & DRAWERS */
+.dark #cart-drawer {
+    background-color: var(--bg-secondary);
+}
+
+.dark #product-modal .bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark .bg-gray-100 {
+    background-color: var(--border-color) !important;
+}
+
+/* 9. TOGGLE BUTTON ANIMATION */
+#theme-toggle {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark #theme-toggle:hover {
+    background-color: var(--bg-hover);
+}
+
+#theme-toggle i {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-icon-hidden {
+    transform: rotate(180deg);
+    opacity: 0;
+    position: absolute;
+}
+
+/* ========================================
+   10. BUTTON STYLES - PERBAIKAN KONTRAS
+   ======================================== */
+
+/* Reset default button di dark mode */
+.dark button,
+.dark .btn,
+.dark input[type="submit"],
+.dark input[type="button"] {
+    transition: all 0.3s ease;
+}
+
+/* Button dengan class bg-brand-700 (Primary CTA) */
+.dark .bg-brand-700,
+.dark button.bg-brand-700 {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important; /* Dark text untuk kontras */
+    border: 2px solid var(--btn-primary);
+    font-weight: 600;
+}
+
+.dark .bg-brand-700:hover,
+.dark button.bg-brand-700:hover {
+    background-color: var(--btn-primary-hover) !important;
+    border-color: var(--btn-primary-hover);
+    color: #1a1410 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(166, 124, 82, 0.4);
+}
+
+/* Button dengan class bg-brand-900 */
+.dark .bg-brand-900,
+.dark button.bg-brand-900 {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--btn-primary);
+}
+
+.dark .bg-brand-900:hover,
+.dark button.bg-brand-900:hover {
+    background-color: var(--bg-hover) !important;
+    border-color: var(--btn-primary-hover);
+    color: #1a1410 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(166, 124, 82, 0.4);
+}
+
+/* Button dengan class bg-brand-500 (Newsletter) */
+.dark .bg-brand-500,
+.dark button.bg-brand-500 {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important;
+    border: 2px solid var(--btn-primary);
+}
+
+.dark .bg-brand-500:hover,
+.dark button.bg-brand-500:hover {
+    background-color: var(--btn-primary-hover) !important;
+    border-color: var(--btn-primary-hover);
+    color: #1a1410 !important;
+}
+
+/* Button outline/border style */
+.dark button.border-brand-300,
+.dark .border-brand-300 {
+    background-color: transparent !important;
+    color: var(--btn-primary) !important;
+    border: 2px solid var(--btn-primary) !important;
+}
+
+.dark button.border-brand-300:hover,
+.dark .border-brand-300:hover {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important;
+    border-color: var(--btn-primary-hover) !important;
+}
+
+/* Button dengan border-b (link-style button) */
+.dark button.border-b-brand-700,
+.dark .border-b-brand-700 {
+    color: var(--btn-primary) !important;
+    border-bottom-color: var(--btn-primary) !important;
+    background-color: transparent !important;
+}
+
+.dark button.border-b-brand-700:hover,
+.dark .border-b-brand-700:hover {
+    color: var(--btn-primary-hover) !important;
+    border-bottom-color: var(--btn-primary-hover) !important;
+}
+
+/* Small icon buttons (cart, close, etc) */
+.dark button.p-2,
+.dark button.p-3 {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark button.p-2:hover,
+.dark button.p-3:hover {
+    background-color: var(--bg-hover);
+    color: var(--btn-primary);
+}
+
+/* Button di dalam modal/product card */
+.dark button.hover\:bg-brand-700 {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark button.hover\:bg-brand-700:hover {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important;
+}
+
+/* Icon-only buttons di product card */
+.dark .group button.absolute {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.dark .group button.absolute:hover {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important;
+    border-color: var(--btn-primary);
+}
+
+/* Feature badges - icon backgrounds */
+.dark .bg-brand-700.rounded-full {
+    background-color: var(--btn-primary) !important;
+}
+
+.dark .group:hover .bg-brand-700.rounded-full {
+    background-color: var(--btn-primary-hover) !important;
+}
+
+/* Social Media Buttons - tetap menggunakan warna brand asli saat hover */
+.dark footer a.hover\:bg-\[\#25D366\]:hover,
+.dark footer a.hover\:bg-\[\#C13584\]:hover,
+.dark footer a.hover\:bg-\[\#1877F2\]:hover,
+.dark footer a.hover\:bg-black:hover,
+.dark footer a.hover\:bg-red-600:hover {
+    /* Biarkan warna asli platform sosmed */
+}
+
+/* Team member social buttons */
+.dark .hover\:bg-\[\#25D366\],
+.dark .hover\:bg-\[\#ad112b\] {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+/* Link buttons dengan efek khusus */
+.dark a.bg-brand-700 {
+    background-color: var(--btn-primary) !important;
+    color: #1a1410 !important;
+}
+
+.dark a.bg-brand-700:hover {
+    background-color: var(--btn-primary-hover) !important;
+    color: #1a1410 !important;
+    box-shadow: 0 8px 24px rgba(166, 124, 82, 0.5);
+}
+
+/* Ensure white text on red badges */
+.dark .bg-red-500 {
+    background-color: #ef4444 !important;
+    color: white !important;
+}
+.dark #btn-lihat{
+    color: #1a1410 !important;
+}
+
+/* ========================================
+   11. ADDITIONAL CONTRAST FIXES
+   ======================================== */
+
+/* Link colors untuk kontras lebih baik */
+.dark a.text-brand-700 {
+    color: var(--btn-primary) !important;
+}
+
+.dark a.text-brand-700:hover {
+    color: var(--btn-primary-hover) !important;
+}
+
+/* Brand color text di dark mode */
+.dark .text-brand-700 {
+    color: var(--btn-primary) !important;
+}
+.dark #cek{
+    color : var(--bg-primary) !important;
+}
+
+
+/* Hover states untuk link */
+.dark a:hover {
+    color: var(--btn-primary-hover);
+}
+
+/* Icon colors */
+.dark i.text-brand-700 {
+    color: var(--btn-primary) !important;
+}
+
+.dark .group:hover i.group-hover\:text-brand-700 {
+    color: var(--btn-primary-hover) !important;
+}

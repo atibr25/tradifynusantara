@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradify Nusantara | Marketplace Produk Tradisional</title>
+    <meta name="description" content="Pusat belanja produk tradisional Indonesia berkualitas tinggi.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f9f6f3',
+                            100: '#eaddd5',
+                            500: '#a67c52',
+                            700: '#8c5030',
+                            900: '#2c2420',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': { opacity: 0, transform: 'scale(0.98)' },
+                            'to': { opacity: 1, transform: 'scale(1)' },
+                        }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.3s ease-out',
+                    }
+                }
+            }
+        }
+         // Cek preferensi dark mode dari localStorage atau system
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+    </script>
+</head>
+<body class="bg-brand-50 text-brand-900 antialiased font-sans overflow-x-hidden">
+
+    <!-- Ganti bagian navbar dengan ini -->
+<nav class="fixed w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-brand-100" id="navbar">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-20">
+            <a href="#" class="flex-shrink-0 flex items-center gap-1.5 sm:gap-2 cursor-pointer">
+                <i class="ph-fill ph-flower-lotus text-2xl sm:text-3xl text-brand-700"></i>
+                <span class="font-serif text-lg sm:text-2xl font-bold text-brand-900 tracking-wide">Tradify Nusantara</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-brand-900 hover:text-brand-700 font-medium transition">Beranda</a>
+                <a href="#products" class="text-brand-900 hover:text-brand-700 font-medium transition">Koleksi</a>
+                <a href="#about" class="text-brand-900 hover:text-brand-700 font-medium transition">Tentang Kami</a>
+                <a href="#contact" class="text-brand-900 hover:text-brand-700 font-medium transition">Kontak</a>
+                
+                <div class="flex items-center gap-4 ml-4">
+                    <button onclick="toggleCart()" class="relative p-2 hover:bg-brand-100 rounded-full transition group">
+                        <i class="ph ph-shopping-cart text-xl group-hover:text-brand-700"></i>
+                        <span id="cart-badge" class="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full opacity-0 transition-opacity duration-300">0</span>
+                    </button>
+                    <button 
+                        id="theme-toggle" 
+                        onclick="toggleTheme()"
+                        class="relative p-2 hover:bg-brand-100 dark:hover:bg-brand-800 rounded-full transition group"
+                        aria-label="Toggle Dark Mode">
+                        <i id="sun-icon" class="ph-fill ph-sun text-xl group-hover:text-brand-700 dark:group-hover:text-brand-500"></i>
+                        <i id="moon-icon" class="ph-fill ph-moon text-xl group-hover:text-brand-700 dark:group-hover:text-brand-500 theme-icon-hidden"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:hidden flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleCart()" class="relative p-1">
+                    <i class="ph ph-shopping-cart text-xl sm:text-2xl"></i>
+                    <span id="mobile-cart-badge" class="absolute -top-1 -right-2 h-4 w-4 bg-red-500 rounded-full opacity-0 text-[12px] text-white"></span>
+                </button>
+                <button id="mobile-menu-btn" class="text-brand-900 focus:outline-none">
+                    <i class="ph ph-list text-2xl sm:text-3xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-100 absolute w-full shadow-lg">
+        <div class="px-3 sm:px-4 pt-3 pb-2 border-b border-brand-100 dark:border-brand-800">
+            <button 
+                onclick="toggleTheme()"
+                class="w-full flex items-center justify-between px-3 py-2.5 font-medium text-brand-900 dark:text-brand-100 hover:bg-brand-50 dark:hover:bg-brand-800 rounded-lg transition text-sm">
+                <span>Mode Tampilan</span>
+                <div class="flex items-center gap-2">
+                    <i id="mobile-sun-icon" class="ph-fill ph-sun text-base"></i>
+                    <i id="mobile-moon-icon" class="ph-fill ph-moon text-base theme-icon-hidden"></i>
+                </div>
+            </button>
+        </div>
+        <div class="px-3 sm:px-4 pt-3 pb-5 space-y-1">
+            <a href="#home" class="block px-3 py-2.5 font-medium text-sm text-brand-900 hover:bg-brand-50 rounded-lg">Beranda</a>
+            <a href="#products" class="block px-3 py-2.5 font-medium text-sm text-brand-900 hover:bg-brand-50 rounded-lg">Koleksi</a>
+            <a href="#about" class="block px-3 py-2.5 font-medium text-sm text-brand-900 hover:bg-brand-50 rounded-lg">Tentang Kami</a>
+            <a href="#contact" class="block px-3 py-2.5 font-medium text-sm text-brand-900 hover:bg-brand-50 rounded-lg">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/40 z-50 hidden transition-opacity duration-300 opacity-0"></div>
+
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-[60] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+    <div class="p-4 sm:p-5 border-b border-brand-100 flex justify-between items-center bg-brand-50">
+        <h2 class="font-serif text-lg sm:text-xl font-bold text-brand-900">Keranjang Belanja</h2>
+        <button onclick="toggleCart()" class="p-1.5 sm:p-2 hover:bg-white rounded-full transition text-brand-900">
+            <i class="ph ph-x text-xl sm:text-2xl"></i>
+        </button>
+    </div>
+
+    <div id="cart-empty" class="flex-1 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-brand-100 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+            <i class="ph ph-basket text-3xl sm:text-4xl text-brand-700"></i>
+        </div>
+        <p class="text-gray-500 mb-4 sm:mb-6 text-sm sm:text-base px-4">Keranjang Anda masih kosong. Mari temukan keindahan Nusantara!</p>
+        <button onclick="toggleCart(); window.location.href='#products'" class="text-brand-700 font-bold border-b border-brand-700 pb-1 text-sm sm:text-base">Mulai Belanja</button>
+    </div>
+
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-3 sm:p-5 space-y-3 sm:space-y-4 hidden">
+    </div>
+
+    <div id="cart-footer" class="p-4 sm:p-5 border-t border-brand-100 bg-brand-50 hidden">
+        <div class="flex justify-between items-center mb-3 sm:mb-4">
+            <span class="text-gray-600 text-sm sm:text-base">Subtotal</span>
+            <span id="cart-total" class="font-bold text-lg sm:text-xl text-brand-900">Rp 0</span>
+        </div>
+        <button onclick="checkout()" class="w-full bg-brand-700 text-white py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base hover:bg-brand-900 transition shadow-lg flex items-center justify-center gap-2">
+            <i class="ph-bold ph-whatsapp-logo text-base sm:text-lg"></i> Checkout via WhatsApp
+        </button>
+    </div>
+</div>
+    <div id="product-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center px-3 sm:px-4">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+    
+    <div class="bg-white rounded-xl sm:rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col md:flex-row shadow-2xl animate-fadeIn">
+        <button onclick="closeModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 bg-white/80 p-1.5 sm:p-2 rounded-full hover:bg-brand-100 transition">
+            <i class="ph-bold ph-x text-lg sm:text-xl"></i>
+        </button>
+
+        <div class="w-full md:w-1/2 bg-gray-100 h-48 sm:h-64 md:h-auto relative">
+            <img id="modal-img" src="" alt="Detail Produk" class="w-full h-full object-cover">
+        </div>
+
+        <div class="w-full md:w-1/2 p-5 sm:p-6 md:p-10 flex flex-col justify-center">
+            <span id="modal-category" class="text-[10px] sm:text-xs font-bold text-brand-700 uppercase tracking-widest mb-1 sm:mb-2">Kategori</span>
+            <h3 id="modal-title" class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-brand-900 mb-1 sm:mb-2">Nama Produk</h3>
+            <h4 id="modal-price" class="text-xl sm:text-2xl text-brand-700 font-medium mb-4 sm:mb-6">Rp 0</h4>
+            
+            <p class="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
+                Dibuat secara handmade oleh pengrajin lokal dengan bahan pilihan. Produk ini memiliki nilai seni tinggi dan daya tahan yang sangat baik. Setiap pembelian mendukung kelangsungan ekonomi desa pengrajin.
+            </p>
+
+            <div class="space-y-3 sm:space-y-4">
+                <div class="flex gap-2 sm:gap-3 pt-3 sm:pt-4">
+                    <button onclick="addToCartFromModal()" class="flex-1 bg-brand-900 text-white py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base hover:bg-brand-700 transition flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-plus text-sm sm:text-base"></i> <span class="hidden xs:inline">Tambah ke </span>Keranjang
+                    </button>
+                    <button class="p-2.5 sm:p-3 border border-gray-300 rounded-xl hover:bg-brand-50 text-brand-900 transition">
+                        <i class="ph-fill ph-heart text-lg sm:text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <section id="home" class="relative pt-16 sm:pt-20 h-[70vh] sm:h-[85vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="/asset/hero-batik.jpg" alt="Batik Background" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-brand-50"></div>
+    </div>
+    <div class="relative z-10 text-center px-3 sm:px-4 max-w-4xl mx-auto reveal active">
+        <span class="inline-block py-1 px-2.5 sm:px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 border border-white/30">100% Karya Anak Bangsa</span>
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight px-2">Warisan Budaya, <br><span class="text-brand-100 italic">Sentuhan Modern.</span></h1>
+        <p class="text-sm sm:text-base md:text-lg text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto font-light px-2">Temukan keindahan kerajinan tangan, tekstil, dan artefak asli dari seluruh pelosok Nusantara.</p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <a href="#products" class="bg-brand-700 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-medium text-sm sm:text-base hover:bg-brand-600 transition shadow-lg transform hover:-translate-y-1">Belanja Sekarang</a>
+        </div>
+    </div>
+</section>
+    <!-- Features Section - Tambahkan sebelum closing tag </section> dari section id="home" -->
+<div class="md:absolute bottom-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-sm border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+            
+            <!-- Feature 1: 100% Buatan Tangan -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 group text-center sm:text-left">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-fill ph-hand text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-xs sm:text-sm mb-0.5 sm:mb-1">100% Buatan Tangan</h4>
+                    <p class="text-[10px] sm:text-xs text-gray-600 hidden sm:block">Dikerjakan oleh pengrajin ahli</p>
+                </div>
+            </div>
+
+            <!-- Feature 2: Material Alami -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 group text-center sm:text-left">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-fill ph-leaf text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-xs sm:text-sm mb-0.5 sm:mb-1">Material Alami</h4>
+                    <p class="text-[10px] sm:text-xs text-gray-600 hidden sm:block">Bahan ramah lingkungan</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Jaminan Keaslian -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 group text-center sm:text-left">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-fill ph-seal-check text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-xs sm:text-sm mb-0.5 sm:mb-1">Jaminan Keaslian</h4>
+                    <p class="text-[10px] sm:text-xs text-gray-600 hidden sm:block">Produk asli Indonesia</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: Kualitas Premium -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 group text-center sm:text-left">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ph-fill ph-star text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-900 text-xs sm:text-sm mb-0.5 sm:mb-1">Kualitas Premium</h4>
+                    <p class="text-[10px] sm:text-xs text-gray-600 hidden sm:block">Standar internasional</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <section id="products" class="py-12 sm:py-20 px-3 sm:px-4 bg-white mt-8 sm:mt-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-8 sm:mb-12 reveal">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-900">Koleksi Pilihan</h2>
+                <p class="text-sm sm:text-base text-gray-500 mt-1 sm:mt-2">Produk terlaris minggu ini.</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+            
+            <div class="group reveal delay-100">
+                <div class="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-[4/5] mb-2 sm:mb-4 cursor-pointer" onclick="openProductModal('Asbak Karet', 45000, 'Kerajinan Tangan', './asset/asbak-karet.jpg')">
+                    <img src="./asset/asbak-karet.jpg" alt="Asbak Karet" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    <button onclick="event.stopPropagation(); addToCart('Asbak Karet', 45000, './asset/asbak-karet.jpg')" class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white p-2 sm:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition duration-300 hover:bg-brand-700 hover:text-white">
+                        <i class="ph-bold ph-plus text-sm sm:text-base"></i>
+                    </button>
+                </div>
+                <div>
+                    <p class="text-[10px] sm:text-xs text-brand-700 font-bold uppercase">Kerajinan Tangan</p>
+                    <h3 class="font-serif font-bold text-sm sm:text-lg text-brand-900 group-hover:text-brand-700 transition line-clamp-1">Asbak Karet</h3>
+                    <p class="font-bold text-brand-900 mt-0.5 sm:mt-1 text-sm sm:text-base">Rp 45.000</p>
+                </div>
+            </div>
+
+            <div class="group reveal delay-200">
+                <div class="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-[4/5] mb-2 sm:mb-4 cursor-pointer" onclick="openProductModal('Sandal Karet', 225000, 'Kerajinan Tangan', '/asset/sandal-karet.jpg')">
+                    <img src="/asset/sandal-karet.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    <button onclick="event.stopPropagation(); addToCart('Sandal Karet', 225000, '/asset/sandal-karet.jpg')" class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white p-2 sm:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition duration-300 hover:bg-brand-700 hover:text-white">
+                        <i class="ph-bold ph-plus text-sm sm:text-base"></i>
+                    </button>
+                </div>
+                <div>
+                    <p class="text-[10px] sm:text-xs text-brand-700 font-bold uppercase">Kerajinan Tangan</p>
+                    <h3 class="font-serif font-bold text-sm sm:text-lg text-brand-900 group-hover:text-brand-700 transition line-clamp-1">Sandal Karet</h3>
+                    <p class="font-bold text-brand-900 mt-0.5 sm:mt-1 text-sm sm:text-base">Rp 225.000</p>
+                </div>
+            </div>
+
+            <div class="group reveal delay-100">
+                <div class="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-[4/5] mb-2 sm:mb-4 cursor-pointer" onclick="openProductModal('Karpet Karet', 18000, 'Kerajinan Tangan', './asset/karpet-karet.jpg')">
+                    <img src="./asset/karpet-karet.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    <button onclick="event.stopPropagation(); addToCart('Karpet Karet', 18000, './asset/karpet-karet.jpg')" class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white p-2 sm:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition duration-300 hover:bg-brand-700 hover:text-white">
+                        <i class="ph-bold ph-plus text-sm sm:text-base"></i>
+                    </button>
+                </div>
+                <div>
+                    <p class="text-[10px] sm:text-xs text-brand-700 font-bold uppercase">Kerajinan Tangan</p>
+                    <h3 class="font-serif font-bold text-sm sm:text-lg text-brand-900 group-hover:text-brand-700 transition line-clamp-1">Karpet Karet</h3>
+                    <p class="font-bold text-brand-900 mt-0.5 sm:mt-1 text-sm sm:text-base">Rp 18.000</p>
+                </div>
+            </div>
+
+            <div class="group reveal delay-200">
+                <div class="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-[4/5] mb-2 sm:mb-4 cursor-pointer" onclick="openProductModal('Tempat Sampah Karet', 35000, 'Keranjang Tangan', './asset/tempat-sampah-karet.jpg')">
+                    <img src="./asset/tempat-sampah-karet.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    <button onclick="event.stopPropagation(); addToCart('Tempat Sampah Karet', 35000, './asset/tempat-sampah-karet.jpg')" class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-white p-2 sm:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition duration-300 hover:bg-brand-700 hover:text-white">
+                        <i class="ph-bold ph-plus text-sm sm:text-base"></i>
+                    </button>
+                </div>
+                <div>
+                    <p class="text-[10px] sm:text-xs text-brand-700 font-bold uppercase">Kerajinan Tangan</p>
+                    <h3 class="font-serif font-bold text-sm sm:text-lg text-brand-900 group-hover:text-brand-700 transition line-clamp-1">Tempat Sampah Karet</h3>
+                    <p class="font-bold text-brand-900 mt-0.5 sm:mt-1 text-sm sm:text-base">Rp 35.000</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="load-more-container" class="mt-8 sm:mt-12 text-center reveal">
+            <button onclick="loadMoreProducts()" class="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 border border-brand-300 rounded-full bg-brand-700 text-white text-sm sm:text-base font-medium hover:bg-brand-900 hover:text-white transition-all duration-300 group hover:-translate-y-1" id="btn-lihat">
+                <span>Lihat Semua Koleksi</span>
+                <i class="ph-bold ph-arrow-down group-hover:animate-bounce text-sm sm:text-base"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="py-12 sm:py-20 bg-brand-50 border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4">
+        
+        <!-- Tentang Kami Section -->
+        <div class="text-center mb-12 sm:mb-16 reveal">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-4 sm:mb-6 px-2">Tentang Kami</h2>
+            <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto text-xs sm:text-sm md:text-base px-4 sm:px-2">
+                <strong class="text-brand-900">Tradify Nusantara</strong> adalah platform marketplace yang menyajikan katalog produk kerajinan tradisional dan handmade dalam satu wadah terpadu. Platform ini memudahkan para pengrajin dalam memasarkan produk mereka secara digital, sekaligus membantu konsumen menemukan kerajinan autentik Indonesia melalui tampilan katalog yang tertata, foto produk yang informatif, serta penjelasan lengkap mengenai bahan dan proses pembuatannya.
+            </p>
+        </div>
+
+        <!-- Visi & Misi Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-12 sm:mb-16">
+            <!-- Card Visi -->
+            <div class="bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 reveal delay-100">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="ph-fill ph-eye text-xl sm:text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg md:text-2xl font-serif font-bold text-brand-900">Visi Kami</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-xs sm:text-sm md:text-base">
+                    Menjadi platform terdepan dalam pelestarian warisan budaya Indonesia dengan menghubungkan pengrajin lokal ke pasar global, serta menjadikan produk kerajinan Nusantara sebagai simbol kebanggaan dan identitas nasional yang diakui dunia.
+                </p>
+            </div>
+
+            <!-- Card Misi -->
+            <div class="bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 reveal delay-200">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-700 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="ph-fill ph-target text-xl sm:text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg md:text-2xl font-serif font-bold text-brand-900">Misi Kami</h3>
+                </div>
+                <ul class="text-gray-600 leading-relaxed space-y-2 text-xs sm:text-sm md:text-base">
+                    <li class="flex items-start gap-2">
+                        <i class="ph-fill ph-check-circle text-brand-700 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                        <span>Memberdayakan lebih dari 1000 pengrajin lokal melalui akses pasar yang lebih luas</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="ph-fill ph-check-circle text-brand-700 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                        <span>Melestarikan teknik kerajinan tradisional untuk generasi mendatang</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="ph-fill ph-check-circle text-brand-700 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                        <span>Memastikan setiap produk memenuhi standar kualitas internasional</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="ph-fill ph-check-circle text-brand-700 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                        <span>Mendukung praktik berkelanjutan dan ramah lingkungan dalam setiap proses produksi</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Impact Stats -->
+        <div class="text-center mb-4 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-brand-900 mb-6 sm:mb-8 reveal px-2">Dukungan Anda Berarti</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16">
+            <div class="bg-white p-5 sm:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow reveal delay-100 text-center">
+                <i class="ph-fill ph-hand-heart text-3xl sm:text-4xl text-brand-700 mb-3 sm:mb-4"></i>
+                <h3 class="font-bold text-sm sm:text-base text-brand-900 mb-1 sm:mb-2">Pemberdayaan</h3>
+                <p class="text-xs sm:text-sm text-gray-500">Membantu 500+ pengrajin desa.</p>
+            </div>
+            <div class="bg-white p-5 sm:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow reveal delay-200 text-center">
+                <i class="ph-fill ph-plant text-3xl sm:text-4xl text-brand-700 mb-3 sm:mb-4"></i>
+                <h3 class="font-bold text-sm sm:text-base text-brand-900 mb-1 sm:mb-2">Eco-Friendly</h3>
+                <p class="text-xs sm:text-sm text-gray-500">Bahan alami dan berkelanjutan.</p>
+            </div>
+            <div class="bg-white p-5 sm:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow reveal delay-300 text-center">
+                <i class="ph-fill ph-package text-3xl sm:text-4xl text-brand-700 mb-3 sm:mb-4"></i>
+                <h3 class="font-bold text-sm sm:text-base text-brand-900 mb-1 sm:mb-2">Ekspor Quality</h3>
+                <p class="text-xs sm:text-sm text-gray-500">Standar kualitas internasional.</p>
+            </div>
+        </div>
+
+        <!-- Tim Hebat Kami -->
+        <div class="text-center mb-8 sm:mb-12 reveal">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-3 sm:mb-4 px-2">Tim Hebat Kami</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-4 sm:px-2">Dibalik kesuksesan Tradify Nusantara, ada tim yang berdedikasi untuk membawa produk terbaik Indonesia ke dunia.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
+            
+            <!-- Team Member 1 -->
+            <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group reveal delay-100">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="/asset/Ihasanudin.jpeg" alt="Siti Nurhaliza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-3 sm:p-4 md:p-6 text-center">
+                    <h3 class="font-serif text-sm sm:text-base md:text-xl font-bold text-brand-900 mb-0.5 sm:mb-1 line-clamp-1">Ihasanudin</h3>
+                    <p class="text-[10px] sm:text-xs md:text-sm text-brand-700 font-medium mb-2 sm:mb-3">Founder & CEO</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 hidden sm:block">Penggerak visi pelestarian budaya melalui ekonomi kreatif.</p>
+                    <div class="flex justify-center gap-2 sm:gap-3">
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-xs sm:text-sm"></i>
+                        </a>
+                        <a href="mailto:emailkamu@example.com?subject=Halo&body=Saya%20ingin%20bertanya" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#ad112b] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-envelope-simple text-xs sm:text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group reveal delay-200">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="/asset/syaiful.jpeg" alt="Budi Santoso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-3 sm:p-4 md:p-6 text-center">
+                    <h3 class="font-serif text-sm sm:text-base md:text-xl font-bold text-brand-900 mb-0.5 sm:mb-1 line-clamp-1">Syaiful Arifin</h3>
+                    <p class="text-[10px] sm:text-xs md:text-sm text-brand-700 font-medium mb-2 sm:mb-3">Head of Operations</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 hidden sm:block">Memastikan kualitas dan pengiriman produk terbaik.</p>
+                    <div class="flex justify-center gap-2 sm:gap-3">
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-xs sm:text-sm"></i>
+                        </a>
+                        <a href="mailto:emailkamu@example.com?subject=Halo&body=Saya%20ingin%20bertanya" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#ad112b] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-envelope-simple text-xs sm:text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group reveal delay-300">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="/asset/izzan.jpeg" alt="Aisyah Rahman" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-3 sm:p-4 md:p-6 text-center">
+                    <h3 class="font-serif text-sm sm:text-base md:text-xl font-bold text-brand-900 mb-0.5 sm:mb-1 line-clamp-1">Izzan Gymnastiar</h3>
+                    <p class="text-[10px] sm:text-xs md:text-sm text-brand-700 font-medium mb-2 sm:mb-3">Creative Director</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 hidden sm:block">Merancang strategi branding dan storytelling produk.</p>
+                    <div class="flex justify-center gap-2 sm:gap-3">
+                        <a href="https://wa.me/6288233756833" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-xs sm:text-sm"></i>
+                        </a>
+                        <a href="mailto:emailkamu@example.com?subject=Halo&body=Saya%20ingin%20bertanya" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#ad112b] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-envelope-simple text-xs sm:text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <!-- <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group reveal delay-400">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" alt="Rizky Pratama" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-3 sm:p-4 md:p-6 text-center">
+                    <h3 class="font-serif text-sm sm:text-base md:text-xl font-bold text-brand-900 mb-0.5 sm:mb-1 line-clamp-1">Rizky Pratama</h3>
+                    <p class="text-[10px] sm:text-xs md:text-sm text-brand-700 font-medium mb-2 sm:mb-3">Tech Lead</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 hidden sm:block">Membangun platform digital yang user-friendly.</p>
+                    <div class="flex justify-center gap-2 sm:gap-3">
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-xs sm:text-sm"></i>
+                        </a>
+                        <a href="mailto:emailkamu@example.com?subject=Halo&body=Saya%20ingin%20bertanya" class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-100 rounded-full flex items-center justify-center hover:bg-[#ad112b] hover:text-white transition-colors duration-300">
+                            <i class="ph-fill ph-envelope-simple text-xs sm:text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+    <!-- SECTION KONTAK -->
+    <section id="contact" class="py-12 sm:py-20 bg-white border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4">
+        
+        <!-- Header -->
+        <div class="text-center mb-8 sm:mb-12 md:mb-16 reveal">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-2 sm:mb-3 md:mb-4 px-2">Hubungi Kami</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-4 sm:px-2">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami melalui berbagai channel yang tersedia.</p>
+        </div>
+
+        <!-- Contact Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-12">
+            
+            <!-- Card Lokasi -->
+            <div class="bg-brand-50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group reveal delay-100">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-brand-700 rounded-full flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ph-fill ph-map-pin text-lg sm:text-xl md:text-2xl text-white"></i>
+                </div>
+                <h3 class="font-serif text-base sm:text-lg md:text-xl font-bold text-brand-900 mb-2">Lokasi Kami</h3>
+                <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    Jl. Pasar Manis, Kedung Wuluh<br>
+                    Purwokerto, Jateng 53134<br>
+                    Indonesia
+                </p>
+            </div>
+
+            <!-- Card Email -->
+            <div class="bg-brand-50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group reveal delay-200">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-brand-700 rounded-full flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ph-fill ph-envelope text-lg sm:text-xl md:text-2xl text-white"></i>
+                </div>
+                <h3 class="font-serif text-base sm:text-lg md:text-xl font-bold text-brand-900 mb-2">Email</h3>
+                <a href="mailto:syaifularifin41.57@gmail.com" class="text-brand-700 hover:text-brand-900 font-medium text-xs sm:text-sm block mb-1 break-all">info@tradifynusantara.id</a>
+                <a href="mailto:support@nusantaracrafts.id" class="text-brand-700 hover:text-brand-900 font-medium text-xs sm:text-sm block break-all">support@tradifynusantara.id</a>
+            </div>
+
+            <!-- Card WhatsApp -->
+            <div class="bg-brand-50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 group reveal delay-300">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-brand-700 rounded-full flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ph-fill ph-whatsapp-logo text-lg sm:text-xl md:text-2xl text-white"></i>
+                </div>
+                <h3 class="font-serif text-base sm:text-lg md:text-xl font-bold text-brand-900 mb-2">WhatsApp</h3>
+                <a href="https://wa.me/6289636191507" target="_blank" class="text-brand-700 hover:text-brand-900 font-medium text-xs sm:text-sm block mb-1">+62 896-3619-1507</a>
+                <p class="text-gray-500 text-[10px] sm:text-xs">Senin - Sabtu: 09:00 - 17:00 WIB</p>
+            </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="reveal mb-8 sm:mb-12 md:mb-16">
+            <div class="bg-brand-50 p-2.5 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl shadow-sm">
+                <div class="relative w-full h-[200px] sm:h-[300px] md:h-[400px] rounded-lg sm:rounded-xl overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!4v1764957563014!6m8!1m7!1sSQs6eakngkzg_WW19_O3_w!2m2!1d-7.417923463335376!2d109.2272677306535!3f273.6!4f-39.12!5f0.7820865974627469"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-lg">
+                    </iframe>
+                </div>
+                <div class="mt-2.5 sm:mt-3 md:mt-4 text-center">
+                    <a href="https://maps.app.goo.gl/q5dj3tUq99Q63cE36?g_st=ac" target="_blank" class="inline-flex items-center gap-1.5 sm:gap-2 text-brand-700 hover:text-brand-900 font-medium text-xs sm:text-sm transition-colors">
+                        <i class="ph-bold ph-navigation-arrow text-xs sm:text-sm"></i>
+                        Buka di Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="max-w-2xl mx-auto reveal">
+            <div class="bg-brand-50 p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl shadow-sm">
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-900 mb-4 sm:mb-5 md:mb-6 text-center">Kirim Pesan</h3>
+                <form id="contact-form" class="space-y-3 sm:space-y-4">
+                    
+                    <!-- Nama Lengkap -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-brand-900 mb-1.5 sm:mb-2">Nama Lengkap</label>
+                        <input 
+                            type="text" 
+                            id="contact-name" 
+                            class="w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base rounded-lg sm:rounded-xl border border-brand-200 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 transition" 
+                            placeholder="Masukkan nama Anda"
+                        >
+                    </div>
+                    
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-brand-900 mb-1.5 sm:mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            id="contact-email" 
+                            class="w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base rounded-lg sm:rounded-xl border border-brand-200 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 transition" 
+                            placeholder="nama@email.com"
+                        >
+                    </div>
+                    
+                    <!-- Pesan -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-brand-900 mb-1.5 sm:mb-2">Pesan</label>
+                        <textarea 
+                            id="contact-message" 
+                            rows="4" 
+                            class="w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base rounded-lg sm:rounded-xl border border-brand-200 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 transition resize-none" 
+                            placeholder="Tulis pesan Anda di sini..."
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button 
+                        type="button"
+                        onclick="sendContactMessage()" 
+                        class="w-full bg-brand-700 text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm md:text-base hover:bg-brand-900 transition-colors shadow-lg flex items-center justify-center gap-2"
+                    >
+                        <i class="ph-bold ph-paper-plane-tilt text-sm sm:text-base"></i>
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- FOOTER -->
+<footer class="bg-brand-900 text-brand-100">
+    <!-- Footer Main -->
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-10 sm:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
+            
+            <!-- Brand Section -->
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                    <i class="ph-fill ph-flower-lotus text-2xl sm:text-3xl text-brand-500"></i>
+                    <span class="font-serif text-lg sm:text-xl md:text-2xl font-bold text-white">Tradify Nusantara</span>
+                </div>
+                <p class="text-brand-100/80 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
+                    Platform marketplace terpercaya untuk produk kerajinan tradisional Indonesia berkualitas tinggi.
+                </p>
+                <!-- Social Media Icons -->
+                <div class="flex gap-2 sm:gap-3">
+                    <a href="https://instagram.com/nusantaracrafts" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-800 hover:bg-[#C13584] rounded-full flex items-center justify-center transition-all duration-300 group">
+                        <i class="ph-fill ph-instagram-logo text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://facebook.com/nusantaracrafts" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-800 hover:bg-[#1877F2] rounded-full flex items-center justify-center transition-all duration-300 group">
+                        <i class="ph-fill ph-facebook-logo text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://x.com/nusantaracrafts" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-800 hover:bg-black rounded-full flex items-center justify-center transition-all duration-300 group">
+                        <i class="ph-fill ph-x-logo text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://tiktok.com/abdur" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-800 hover:bg-black rounded-full flex items-center justify-center transition-all duration-300 group">
+                        <i class="ph-fill ph-tiktok-logo text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://youtube.com/@nusantaracrafts" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-800 hover:bg-red-600 rounded-full flex items-center justify-center transition-all duration-300 group">
+                        <i class="ph-fill ph-youtube-logo text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="font-serif text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Navigasi</h3>
+                <ul class="space-y-2 sm:space-y-3">
+                    <li><a href="#home" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Beranda
+                    </a></li>
+                    <li><a href="#products" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Koleksi Produk
+                    </a></li>
+                    <li><a href="#about" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Tentang Kami
+                    </a></li>
+                    <li><a href="#contact" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Hubungi Kami
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Service -->
+            <div>
+                <h3 class="font-serif text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Layanan</h3>
+                <ul class="space-y-2 sm:space-y-3">
+                    <li><a href="caraBeli.html" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Cara Pemesanan
+                    </a></li>
+                    <li><a href="pengembalian.html" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Kebijakan Pengembalian
+                    </a></li>
+                    <li><a href="ketentuan.html" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Syarat & Ketentuan
+                    </a></li>
+                    <li><a href="privasi.html" class="text-brand-100/80 hover:text-brand-500 text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2 group">
+                        <i class="ph ph-caret-right text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>Kebijakan Privasi
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="font-serif text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Kontak</h3>
+                <ul class="space-y-3 sm:space-y-4">
+                    <li class="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-brand-100/80">
+                        <i class="ph-fill ph-map-pin text-brand-500 text-base sm:text-lg flex-shrink-0 mt-0.5"></i>
+                        <span>Jl. Pasar Manis, Kedung Wuluh<br>Purwokerto, Jateng 53134</span>
+                    </li>
+                    <li class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                        <i class="ph-fill ph-envelope text-brand-500 text-base sm:text-lg flex-shrink-0"></i>
+                        <a href="mailto:syaifularifin41.57@gmail.com" class="text-brand-100/80 hover:text-brand-500 transition-colors break-all">info@tradifynusantara.id</a>
+                    </li>
+                    <li class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                        <i class="ph-fill ph-phone text-brand-500 text-base sm:text-lg flex-shrink-0"></i>
+                        <a href="tel:+6289636191507" class="text-brand-100/80 hover:text-brand-500 transition-colors">+62 896-3619-1507</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="border-t border-brand-800 pt-6 sm:pt-8 mb-6 sm:mb-8">
+            <div class="max-w-xl mx-auto text-center">
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Dapatkan Update Terbaru</h3>
+                <p class="text-brand-100/70 text-xs sm:text-sm mb-4 sm:mb-6 px-2">Berlangganan newsletter untuk info produk baru dan promo menarik</p>
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-2">
+                    <input 
+                        type="email" 
+                        id="newsletter-email"
+                        placeholder="Email Anda" 
+                        class="w-full sm:flex-1 px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base rounded-lg bg-brand-800 border border-brand-700 text-white placeholder-brand-100/40 focus:outline-none focus:border-brand-500 transition"
+                    >
+                    <button onclick="subscribeNewsletter()" class="w-full sm:w-auto px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-brand-500 hover:bg-brand-700 text-white font-medium text-xs sm:text-sm md:text-base rounded-lg transition-colors duration-300 whitespace-nowrap">
+                        Berlangganan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-2 sm:gap-4 text-[10px] sm:text-xs md:text-sm text-brand-100/60 text-center">
+                <p>© 2025 Tradify Nusantara Dibuat dengan <i class="ph-fill ph-heart text-red-500"></i> untuk Indonesia. All Right Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syarat dan Ketentuan | Tradify Nusantara</title>
+    <meta name="description" content="Syarat dan Ketentuan Penggunaan Platform Tradify Nusantara">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f9f6f3',
+                            100: '#eaddd5',
+                            500: '#a67c52',
+                            700: '#8c5030',
+                            900: '#2c2420',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .section-heading {
+            scroll-margin-top: 100px;
+        }
+        
+        .toc-link {
+            transition: all 0.3s ease;
+        }
+        
+        .toc-link:hover {
+            transform: translateX(8px);
+        }
+
+        .dark {
+            --bg-primary: #1a1410;
+            --bg-secondary: #2c2420;
+            --text-primary: #f9f6f3;
+            --text-secondary: #eaddd5;
+        }
+        
+        .dark body {
+            background-color: #1a1410;
+            color: #f9f6f3;
+        }
+        
+        .dark nav {
+            background-color: rgba(26, 20, 16, 0.9);
+            border-color: #3d3430;
+        }
+        
+        .dark .bg-white {
+            background-color: #2c2420 !important;
+        }
+        
+        .dark .bg-brand-50 {
+            background-color: #2c2420 !important;
+        }
+        
+        .dark .text-brand-900 {
+            color: #f9f6f3 !important;
+        }
+        
+        .dark .text-gray-600,
+        .dark .text-gray-500 {
+            color: #c4b5a0 !important;
+        }
+        
+        .dark .border-brand-100 {
+            border-color: #3d3430 !important;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-brand-900 antialiased font-sans">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <i class="ph-fill ph-flower-lotus text-3xl text-brand-700"></i>
+                    <span class="font-serif text-2xl font-bold text-brand-900 tracking-wide">Tradify Nusantara</span>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="text-brand-900 hover:text-brand-700 font-medium transition flex items-center gap-2">
+                        <i class="ph ph-arrow-left"></i>
+                        <span class="hidden sm:inline">Kembali ke Beranda</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-32 pb-16 bg-gradient-to-b from-brand-100 to-brand-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
+                <i class="ph-fill ph-scroll text-brand-700"></i>
+                <span class="text-sm font-medium text-brand-900">Dokumen Legal</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 mb-4">Syarat dan Ketentuan</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-4">Ketentuan penggunaan platform marketplace Tradify Nusantara</p>
+            <p class="text-sm text-brand-700 font-medium">Terakhir Diperbarui: 30 November 2025</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- TABLE OF CONTENTS (Sticky Sidebar) -->
+                <div class="lg:col-span-1">
+                    <div class="bg-brand-50 rounded-2xl p-6 sticky top-24">
+                        <h3 class="font-serif text-lg font-bold text-brand-900 mb-4 flex items-center gap-2">
+                            <i class="ph-fill ph-list text-brand-700"></i>
+                            Daftar Isi
+                        </h3>
+                        <nav class="space-y-2 text-sm">
+                            <a href="#pendahuluan" class="toc-link block text-gray-600 hover:text-brand-700 py-1">1. Pendahuluan</a>
+                            <a href="#definisi" class="toc-link block text-gray-600 hover:text-brand-700 py-1">2. Definisi</a>
+                            <a href="#ketentuan-umum" class="toc-link block text-gray-600 hover:text-brand-700 py-1">3. Ketentuan Umum</a>
+                            <a href="#transaksi" class="toc-link block text-gray-600 hover:text-brand-700 py-1">4. Transaksi</a>
+                            <a href="#pengiriman" class="toc-link block text-gray-600 hover:text-brand-700 py-1">5. Pengiriman</a>
+                            <a href="#pengembalian" class="toc-link block text-gray-600 hover:text-brand-700 py-1">6. Pengembalian</a>
+                            <a href="#garansi" class="toc-link block text-gray-600 hover:text-brand-700 py-1">7. Garansi</a>
+                            <a href="#hak-cipta" class="toc-link block text-gray-600 hover:text-brand-700 py-1">8. Hak Cipta</a>
+                            <a href="#privasi" class="toc-link block text-gray-600 hover:text-brand-700 py-1">9. Privasi</a>
+                            <a href="#larangan" class="toc-link block text-gray-600 hover:text-brand-700 py-1">10. Larangan</a>
+                            <a href="#tanggung-jawab" class="toc-link block text-gray-600 hover:text-brand-700 py-1">11. Tanggung Jawab</a>
+                            <a href="#perubahan" class="toc-link block text-gray-600 hover:text-brand-700 py-1">12. Perubahan</a>
+                            <a href="#sengketa" class="toc-link block text-gray-600 hover:text-brand-700 py-1">13. Sengketa</a>
+                            <a href="#kontak" class="toc-link block text-gray-600 hover:text-brand-700 py-1">14. Kontak</a>
+                            <a href="#persetujuan" class="toc-link block text-gray-600 hover:text-brand-700 py-1">15. Persetujuan</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none">
+
+                        <!-- 1. PENDAHULUAN -->
+                        <div id="pendahuluan" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">1</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Pendahuluan</h2>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">Selamat datang di <strong>Tradify Nusantara</strong>. Dengan mengakses dan menggunakan platform marketplace kami, Anda menyetujui untuk terikat dengan syarat dan ketentuan berikut. Harap membaca dengan seksama sebelum melakukan transaksi.</p>
+                        </div>
+
+                        <!-- 2. DEFINISI -->
+                        <div id="definisi" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">2</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Definisi</h2>
+                            </div>
+                            <div class="bg-brand-50 rounded-xl p-6 space-y-3">
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-dot text-brand-700 text-xl flex-shrink-0"></i>
+                                    <p class="text-gray-600 m-0"><strong>Platform:</strong> Website dan layanan marketplace Tradify Nusantara yang dapat diakses melalui domain resmi</p>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-dot text-brand-700 text-xl flex-shrink-0"></i>
+                                    <p class="text-gray-600 m-0"><strong>Pengguna:</strong> Setiap individu atau badan hukum yang mengakses platform</p>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-dot text-brand-700 text-xl flex-shrink-0"></i>
+                                    <p class="text-gray-600 m-0"><strong>Pembeli:</strong> Pengguna yang melakukan pembelian produk melalui platform</p>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-dot text-brand-700 text-xl flex-shrink-0"></i>
+                                    <p class="text-gray-600 m-0"><strong>Pengrajin/Seller:</strong> Pihak ketiga yang memasarkan produk kerajinan tradisional melalui platform</p>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-dot text-brand-700 text-xl flex-shrink-0"></i>
+                                    <p class="text-gray-600 m-0"><strong>Produk:</strong> Barang kerajinan tradisional dan handmade yang dijual melalui platform</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. KETENTUAN UMUM -->
+                        <div id="ketentuan-umum" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">3</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Ketentuan Umum</h2>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">3.1 Kelayakan Pengguna</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Pengguna harus berusia minimal 17 tahun atau memiliki izin dari orang tua/wali</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Pengguna bertanggung jawab atas keakuratan informasi yang diberikan</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Satu akun hanya boleh digunakan oleh satu orang</span></li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">3.2 Akun Pengguna</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Pengguna wajib memberikan informasi yang akurat dan terkini</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Pengguna bertanggung jawab menjaga kerahasiaan informasi akun</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-check-circle text-brand-700 mt-1 flex-shrink-0"></i><span>Tradify Nusantara berhak menonaktifkan akun yang melanggar ketentuan</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. TRANSAKSI -->
+                        <div id="transaksi" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">4</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Transaksi dan Pembelian</h2>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">4.1 Proses Pemesanan</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-shopping-cart text-brand-700 mt-1 flex-shrink-0"></i><span>Pemesanan dilakukan melalui keranjang belanja dan checkout via WhatsApp</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-whatsapp-logo text-brand-700 mt-1 flex-shrink-0"></i><span>Konfirmasi pesanan akan dikirim melalui WhatsApp setelah pembeli menghubungi admin</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-seal-check text-brand-700 mt-1 flex-shrink-0"></i><span>Pesanan dianggap final setelah pembayaran dikonfirmasi</span></li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">4.2 Harga dan Pembayaran</h3>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg mb-4">
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-warning text-yellow-600 text-xl flex-shrink-0"></i>
+                                    <div>
+                                        <p class="font-semibold text-yellow-800 m-0">Perhatian Penting</p>
+                                        <p class="text-sm text-yellow-700 m-0 mt-1">Harga dapat berubah sewaktu-waktu. Pastikan konfirmasi harga dengan admin sebelum pembayaran.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-currency-circle-dollar text-brand-700 mt-1 flex-shrink-0"></i><span>Semua harga tercantum dalam Rupiah (IDR)</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-truck text-brand-700 mt-1 flex-shrink-0"></i><span>Harga belum termasuk ongkos kirim kecuali dinyatakan lain</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-clock text-brand-700 mt-1 flex-shrink-0"></i><span>Pembayaran harus dilakukan dalam waktu maksimal 2x24 jam setelah konfirmasi pesanan</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- 5. PENGIRIMAN -->
+                        <div id="pengiriman" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">5</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Pengiriman dan Penerimaan</h2>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">5.1 Estimasi Waktu Pengiriman</h3>
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-brand-50 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i class="ph-fill ph-map-pin text-brand-700 text-xl"></i>
+                                        <h4 class="font-semibold text-brand-900 m-0">Area Jawa</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm m-0">3-7 hari kerja</p>
+                                </div>
+                                <div class="bg-brand-50 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i class="ph-fill ph-map-pin text-brand-700 text-xl"></i>
+                                        <h4 class="font-semibold text-brand-900 m-0">Luar Jawa</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm m-0">5-14 hari kerja</p>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">5.2 Ketentuan Pengiriman</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-info text-brand-700 mt-1 flex-shrink-0"></i><span>Pembeli wajib memberikan alamat lengkap dan nomor telepon aktif</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-info text-brand-700 mt-1 flex-shrink-0"></i><span>Tradify Nusantara tidak bertanggung jawab atas keterlambatan akibat force majeure</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-info text-brand-700 mt-1 flex-shrink-0"></i><span>Risiko kerusakan atau kehilangan selama pengiriman menjadi tanggung jawab ekspedisi</span></li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">5.3 Penerimaan Barang</h3>
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                                <div class="flex gap-3">
+                                    <i class="ph-fill ph-lightbulb text-blue-600 text-xl flex-shrink-0"></i>
+                                    <div>
+                                        <p class="font-semibold text-blue-800 m-0">Tips Penting</p>
+                                        <p class="text-sm text-blue-700 m-0 mt-1">Lakukan video unboxing sebagai bukti kondisi paket saat diterima. Ini akan mempermudah proses klaim jika terjadi masalah.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. PENGEMBALIAN -->
+                        <div id="pengembalian" class="section-heading mb-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">6</div>
+                                <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Kebijakan Pengembalian</h2>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">6.1 Kondisi yang Dapat Dikembalikan</h3>
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <i class="ph-fill ph-check-circle text-green-600 text-xl"></i>
+                                        <h4 class="font-semibold text-green-800 m-0">Dapat Dikembalikan</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-green-700">
+                                        <li>✓ Produk rusak/cacat produksi</li>
+                                        <li>✓ Tidak sesuai deskripsi</li>
+                                        <li>✓ Salah kirim produk</li>
+                                        <li>✓ Rusak saat pengiriman</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <i class="ph-fill ph-x-circle text-red-600 text-xl"></i>
+                                        <h4 class="font-semibold text-red-800 m-0">Tidak Dapat Dikembalikan</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-red-700">
+                                        <li>✗ Produk custom/made-to-order</li>
+                                        <li>✗ Sudah digunakan/dimodifikasi</li>
+                                        <li>✗ Produk sale/clearance</li>
+                                        <li>✗ Kesalahan pemakaian pembeli</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">6.2 Syarat Pengembalian</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex gap-2"><i class="ph-fill ph-clock text-brand-700 mt-1 flex-shrink-0"></i><span>Pengajuan maksimal <strong>3x24 jam</strong> setelah barang diterima</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-package text-brand-700 mt-1 flex-shrink-0"></i><span>Produk harus dalam kondisi belum digunakan</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-tag text-brand-700 mt-1 flex-shrink-0"></i><span>Kemasan asli dan label masih terpasang</span></li>
+                                <li class="flex gap-2"><i class="ph-fill ph-camera text-brand-700 mt-1 flex-shrink-0"></i><span>Disertai bukti pembelian dan foto/video kondisi produk</span></li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">6.3 Proses Pengembalian</h3>
+                            <div class="space-y-3">
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                    <div>
+                                        <p class="font-semibold text-brand-900 m-0">Hubungi Customer Service</p>
+                                        <p class="text-sm text-gray-600 m-0">WhatsApp: +62 896-3619-1507</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                    <div>
+                                        <p class="font-semibold text-brand-900 m-0">Kirim Dokumentasi</p>
+                                        <p class="text-sm text-gray-600 m-0">Foto/video kondisi produk dan bukti pembelian</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                    <div>
+                                        <p class="font-semibold text-brand-900 m-0">Tunggu Persetujuan</p>
+                                        <p class="text-sm text-gray-600 m-0">Tim kami akan meninjau pengajuan Anda</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                    <div>
+                                        <p class="font-semibold text-brand-900 m-0">Kirim Produk</p>
+                                        <p class="text-sm text-gray-600 m-0">Ke alamat yang ditentukan setelah disetujui</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-8 h-8 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
+                                    <div>
+                                        <p class="font-semibold text-brand-900 m-0">Proses Refund/Penukaran</p>
+                                        <p class="text-sm text-gray-600 m-0">Setelah produk diterima dan diverifikasi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <!-- 7. GARANSI - LENGKAP -->
+<div id="garansi" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">7</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Garansi Kualitas Produk</h2>
+    </div>
+    
+    <div class="bg-brand-50 rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-3 mb-4">
+            <i class="ph-fill ph-seal-check text-brand-700 text-2xl"></i>
+            <h3 class="text-lg font-semibold text-brand-900 m-0">Komitmen Kualitas Kami</h3>
+        </div>
+        <p class="text-gray-600 text-sm m-0">Setiap produk kerajinan Nusantara dipilih dengan cermat dan melalui quality control ketat untuk memastikan Anda menerima produk terbaik.</p>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">7.1 Standar Kualitas</h3>
+    <ul class="space-y-3 text-gray-600">
+        <li class="flex gap-3">
+            <i class="ph-fill ph-check-square text-brand-700 text-xl mt-1 flex-shrink-0"></i>
+            <span>Semua produk telah melalui <strong>quality control</strong> sebelum dikirim untuk memastikan tidak ada cacat produksi</span>
+        </li>
+        <li class="flex gap-3">
+            <i class="ph-fill ph-hand-heart text-brand-700 text-xl mt-1 flex-shrink-0"></i>
+            <span>Produk handmade memiliki <strong>karakteristik unik</strong> dan sedikit perbedaan adalah hal yang wajar dan menambah nilai artistik</span>
+        </li>
+        <li class="flex gap-3">
+            <i class="ph-fill ph-palette text-brand-700 text-xl mt-1 flex-shrink-0"></i>
+            <span>Warna produk dapat sedikit berbeda dari foto karena perbedaan kalibrasi layar perangkat</span>
+        </li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">7.2 Cakupan Garansi</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-green-50 border-l-4 border-green-500 rounded-r-lg p-4">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="ph-fill ph-shield-check text-green-600 text-xl"></i>
+                <h4 class="font-semibold text-green-800 m-0">Garansi Cacat Produksi</h4>
+            </div>
+            <p class="text-sm text-green-700 m-0 mb-2"><strong>7 hari</strong> sejak penerimaan barang</p>
+            <p class="text-xs text-green-600 m-0">Berlaku untuk kerusakan yang terjadi sebelum pengiriman atau cacat bawaan produksi</p>
+        </div>
+        <div class="bg-orange-50 border-l-4 border-orange-500 rounded-r-lg p-4">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="ph-fill ph-shield-warning text-orange-600 text-xl"></i>
+                <h4 class="font-semibold text-orange-800 m-0">Tidak Termasuk Garansi</h4>
+            </div>
+            <ul class="text-xs text-orange-700 space-y-1 m-0">
+                <li>• Kerusakan akibat pemakaian normal</li>
+                <li>• Kelalaian atau kesalahan penggunaan</li>
+                <li>• Modifikasi tanpa izin</li>
+                <li>• Kerusakan akibat force majeure</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 8. HAK CIPTA -->
+<div id="hak-cipta" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">8</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Hak Kekayaan Intelektual</h2>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">8.1 Hak Cipta dan Konten</h3>
+    <div class="bg-purple-50 border border-purple-200 rounded-xl p-5 mb-4">
+        <div class="flex gap-3">
+            <i class="ph-fill ph-copyright text-purple-600 text-2xl flex-shrink-0"></i>
+            <div>
+                <p class="text-gray-700 m-0 mb-2">Semua konten di platform ini dilindungi hak cipta, meliputi:</p>
+                <div class="grid md:grid-cols-2 gap-2 text-sm text-purple-800">
+                    <div>• Foto produk</div>
+                    <div>• Deskripsi dan teks</div>
+                    <div>• Desain website</div>
+                    <div>• Logo dan branding</div>
+                    <div>• Video dan multimedia</div>
+                    <div>• Ilustrasi grafis</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-4 mb-6">
+        <div class="flex gap-3">
+            <i class="ph-fill ph-warning-circle text-red-600 text-xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-red-800 m-0">Larangan Keras</p>
+                <p class="text-sm text-red-700 m-0 mt-1">Dilarang menggunakan, menyalin, memodifikasi, atau mendistribusikan konten tanpa izin tertulis dari Tradify Nusantara atau pemilik hak cipta.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">8.2 Merek Dagang</h3>
+    <div class="flex items-start gap-4 bg-brand-50 rounded-xl p-5">
+        <i class="ph-fill ph-trademark text-brand-700 text-3xl flex-shrink-0"></i>
+        <div>
+            <p class="text-gray-700 m-0 mb-2"><strong>"Tradify Nusantara"</strong> beserta logo dan variasi visualnya adalah <strong>merek dagang terdaftar</strong> yang dilindungi undang-undang.</p>
+            <p class="text-sm text-gray-600 m-0">Penggunaan tidak sah dapat dikenakan sanksi hukum sesuai UU No. 20 Tahun 2016 tentang Merek dan Indikasi Geografis.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 9. PRIVASI -->
+<div id="privasi" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">9</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Privasi dan Keamanan Data</h2>
+    </div>
+
+    <div class="bg-blue-50 rounded-xl p-5 mb-6">
+        <div class="flex items-center gap-3 mb-3">
+            <i class="ph-fill ph-lock-key text-blue-600 text-2xl"></i>
+            <h3 class="text-lg font-semibold text-blue-900 m-0">Komitmen Perlindungan Data</h3>
+        </div>
+        <p class="text-sm text-blue-800 m-0">Kami sangat menghargai privasi Anda dan berkomitmen melindungi data personal sesuai standar keamanan internasional.</p>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">9.1 Pengumpulan Data</h3>
+    <p class="text-gray-600 mb-3">Kami mengumpulkan data personal untuk keperluan transaksi dan pengiriman, meliputi:</p>
+    <div class="grid md:grid-cols-2 gap-3 mb-6">
+        <div class="flex items-center gap-3 bg-white border border-brand-100 rounded-lg p-3">
+            <i class="ph-fill ph-user text-brand-700 text-xl"></i>
+            <span class="text-sm text-gray-700">Nama lengkap</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white border border-brand-100 rounded-lg p-3">
+            <i class="ph-fill ph-map-pin text-brand-700 text-xl"></i>
+            <span class="text-sm text-gray-700">Alamat pengiriman</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white border border-brand-100 rounded-lg p-3">
+            <i class="ph-fill ph-envelope text-brand-700 text-xl"></i>
+            <span class="text-sm text-gray-700">Email</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white border border-brand-100 rounded-lg p-3">
+            <i class="ph-fill ph-phone text-brand-700 text-xl"></i>
+            <span class="text-sm text-gray-700">Nomor telepon</span>
+        </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">9.2 Penggunaan Data</h3>
+    <ul class="space-y-2 text-gray-600">
+        <li class="flex gap-3"><i class="ph-fill ph-check text-brand-700 mt-1 flex-shrink-0"></i><span>Pemrosesan dan konfirmasi pesanan</span></li>
+        <li class="flex gap-3"><i class="ph-fill ph-check text-brand-700 mt-1 flex-shrink-0"></i><span>Pengiriman produk ke alamat tujuan</span></li>
+        <li class="flex gap-3"><i class="ph-fill ph-check text-brand-700 mt-1 flex-shrink-0"></i><span>Komunikasi terkait pesanan dan layanan</span></li>
+        <li class="flex gap-3"><i class="ph-fill ph-check text-brand-700 mt-1 flex-shrink-0"></i><span>Peningkatan kualitas layanan pelanggan</span></li>
+    </ul>
+    <div class="bg-green-50 border-l-4 border-green-500 rounded-r-lg p-4 mt-4">
+        <div class="flex gap-3">
+            <i class="ph-fill ph-shield-check text-green-600 text-xl flex-shrink-0"></i>
+            <p class="text-sm text-green-700 m-0"><strong>Jaminan:</strong> Kami TIDAK AKAN menjual atau membagikan data Anda ke pihak ketiga tanpa persetujuan eksplisit.</p>
+        </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">9.3 Keamanan Data</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+        <div class="text-center bg-brand-50 rounded-lg p-4">
+            <i class="ph-fill ph-lock text-brand-700 text-3xl mb-2"></i>
+            <p class="font-semibold text-brand-900 text-sm m-0">Enkripsi SSL/TLS</p>
+            <p class="text-xs text-gray-600 m-0 mt-1">Komunikasi terenkripsi</p>
+        </div>
+        <div class="text-center bg-brand-50 rounded-lg p-4">
+            <i class="ph-fill ph-database text-brand-700 text-3xl mb-2"></i>
+            <p class="font-semibold text-brand-900 text-sm m-0">Server Aman</p>
+            <p class="text-xs text-gray-600 m-0 mt-1">Infrastruktur terlindungi</p>
+        </div>
+        <div class="text-center bg-brand-50 rounded-lg p-4">
+            <i class="ph-fill ph-fingerprint text-brand-700 text-3xl mb-2"></i>
+            <p class="font-semibold text-brand-900 text-sm m-0">Akses Terbatas</p>
+            <p class="text-xs text-gray-600 m-0 mt-1">Hanya tim authorized</p>
+        </div>
+    </div>
+    <p class="text-sm text-gray-600 mt-4 italic">* Pengguna bertanggung jawab menjaga kerahasiaan informasi login dan segera melaporkan jika terjadi akses tidak sah.</p>
+</div>
+
+<!-- 10. LARANGAN -->
+<div id="larangan" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">10</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Larangan dan Batasan Penggunaan</h2>
+    </div>
+
+    <div class="bg-red-50 border-2 border-red-300 rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-3 mb-4">
+            <i class="ph-fill ph-prohibit text-red-600 text-3xl"></i>
+            <h3 class="text-lg font-semibold text-red-900 m-0">Pengguna DILARANG KERAS</h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="space-y-3">
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Aktivitas Ilegal</p>
+                        <p class="text-xs text-red-700 m-0">Menggunakan platform untuk tujuan melanggar hukum</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Penipuan</p>
+                        <p class="text-xs text-red-700 m-0">Memberikan informasi palsu atau menyesatkan</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Akses Tidak Sah</p>
+                        <p class="text-xs text-red-700 m-0">Mencoba mengakses sistem atau data tanpa otorisasi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Konten Berbahaya</p>
+                        <p class="text-xs text-red-700 m-0">Mengirim spam, malware, virus, atau konten merusak</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Penyalahgunaan Fitur</p>
+                        <p class="text-xs text-red-700 m-0">Manipulasi review, rating, atau sistem lainnya</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="ph-fill ph-x-circle text-red-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-red-900 text-sm m-0">Pesanan Fiktif</p>
+                        <p class="text-xs text-red-700 m-0">Pemesanan palsu atau menyalahgunakan sistem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-r-lg p-4">
+        <div class="flex gap-3">
+            <i class="ph-fill ph-warning text-yellow-600 text-xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-yellow-900 m-0">Konsekuensi Pelanggaran</p>
+                <p class="text-sm text-yellow-800 m-0 mt-1">Pelanggaran ketentuan dapat mengakibatkan: penonaktifan akun permanen, pembatalan transaksi, tindakan hukum sesuai peraturan yang berlaku.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 11. TANGGUNG JAWAB -->
+<div id="tanggung-jawab" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">11</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Tanggung Jawab dan Batasan Liability</h2>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">11.1 Tanggung Jawab Platform</h3>
+    <div class="bg-brand-50 rounded-xl p-5 space-y-3 mb-6">
+        <div class="flex gap-3">
+            <i class="ph-fill ph-check-circle text-brand-700 text-xl flex-shrink-0 mt-1"></i>
+            <p class="text-gray-700 m-0">Kami berusaha maksimal memberikan informasi produk yang <strong>akurat dan terkini</strong></p>
+        </div>
+        <div class="flex gap-3">
+            <i class="ph-fill ph-info text-brand-700 text-xl flex-shrink-0 mt-1"></i>
+            <p class="text-gray-700 m-0">Kami <strong>tidak bertanggung jawab</strong> atas kerugian tidak langsung, konsekuensial, atau insidental yang timbul dari penggunaan platform</p>
+        </div>
+        <div class="flex gap-3">
+            <i class="ph-fill ph-scales text-brand-700 text-xl flex-shrink-0 mt-1"></i>
+            <p class="text-gray-700 m-0">Tanggung jawab maksimal kami <strong>terbatas pada nilai transaksi</strong> yang dilakukan</p>
+        </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">11.2 Force Majeure (Keadaan Kahar)</h3>
+    <p class="text-gray-600 mb-4">Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat kondisi di luar kendali wajar, termasuk namun tidak terbatas pada:</p>
+    <div class="grid md:grid-cols-2 gap-3">
+        <div class="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
+            <i class="ph-fill ph-warning-octagon text-orange-500 text-2xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-gray-900 text-sm m-0">Bencana Alam</p>
+                <p class="text-xs text-gray-600 m-0 mt-1">Gempa, banjir, tsunami, kebakaran</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
+            <i class="ph-fill ph-warning-octagon text-orange-500 text-2xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-gray-900 text-sm m-0">Konflik Sosial</p>
+                <p class="text-xs text-gray-600 m-0 mt-1">Perang, kerusuhan, gangguan sipil</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
+            <i class="ph-fill ph-warning-octagon text-orange-500 text-2xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-gray-900 text-sm m-0">Gangguan Teknis</p>
+                <p class="text-xs text-gray-600 m-0 mt-1">Internet, telekomunikasi, listrik</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
+            <i class="ph-fill ph-warning-octagon text-orange-500 text-2xl flex-shrink-0"></i>
+            <div>
+                <p class="font-semibold text-gray-900 text-sm m-0">Kebijakan Pemerintah</p>
+                <p class="text-xs text-gray-600 m-0 mt-1">Regulasi, lockdown, pembatasan</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 12. PERUBAHAN -->
+<div id="perubahan" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">12</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Perubahan Syarat dan Ketentuan</h2>
+    </div>
+
+    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
+        <div class="flex items-start gap-4">
+            <i class="ph-fill ph-note-pencil text-blue-600 text-3xl flex-shrink-0"></i>
+            <div class="space-y-3">
+                <p class="text-gray-700 m-0"><strong>Tradify Nusantara berhak</strong> mengubah, memodifikasi, atau memperbarui syarat dan ketentuan ini kapan saja tanpa pemberitahuan sebelumnya.</p>
+                <ul class="space-y-2 text-sm text-gray-600 m-0">
+                    <li class="flex gap-2">
+                        <i class="ph-fill ph-calendar-check text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span>Perubahan berlaku <strong>segera</strong> setelah dipublikasikan di website</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <i class="ph-fill ph-bell text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span>Pengguna disarankan <strong>memeriksa halaman ini secara berkala</strong></span>
+                    </li>
+                    <li class="flex gap-2">
+                        <i class="ph-fill ph-handshake text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span>Penggunaan platform setelah perubahan dianggap sebagai <strong>persetujuan</strong> atas ketentuan baru</span>
+                    </li>
+                </ul>
+                <div class="bg-white rounded-lg p-3 mt-3">
+                    <p class="text-xs text-gray-500 m-0"><i class="ph-fill ph-clock-clockwise"></i> <strong>Terakhir Diperbarui:</strong> 30 November 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 13. PENYELESAIAN SENGKETA -->
+<div id="sengketa" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">13</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Penyelesaian Sengketa</h2>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">13.1 Mediasi</h3>
+    <div class="bg-green-50 rounded-xl p-6 mb-6">
+        <div class="flex items-start gap-4">
+            <i class="ph-fill ph-handshake text-green-600 text-3xl flex-shrink-0"></i>
+            <div class="space-y-3">
+                <p class="text-gray-700 m-0">Setiap sengketa yang timbul akan diselesaikan terlebih dahulu melalui <strong>musyawarah dan mediasi</strong> dengan itikad baik dari kedua belah pihak.</p>
+                <div class="bg-white rounded-lg p-4 border border-green-200">
+                    <p class="text-sm text-gray-600 m-0 mb-2">Hubungi Customer Service kami untuk proses mediasi:</p>
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-envelope text-green-600"></i>
+                        <a href="mailto:cs@tradifynusantara.id" class="text-green-700 font-semibold hover:underline">cs@tradifynusantara.id</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-brand-900 mt-6 mb-3">13.2 Hukum yang Berlaku</h3>
+    <div class="bg-blue-50 border-l-4 border-blue-500 rounded-r-lg p-5">
+        <div class="flex items-start gap-4">
+            <i class="ph-fill ph-scales text-blue-600 text-3xl flex-shrink-0"></i>
+            <div class="space-y-3">
+                <div>
+                    <p class="font-semibold text-blue-900 m-0 mb-2">Yurisdiksi Hukum</p>
+                    <p class="text-sm text-blue-800 m-0">Syarat dan ketentuan ini diatur dan ditafsirkan sesuai dengan <strong>hukum Negara Republik Indonesia</strong>.</p>
+                </div>
+                <div class="bg-white rounded-lg p-4">
+                    <p class="text-sm text-gray-600 m-0 mb-2">Jika mediasi tidak mencapai kesepakatan:</p>
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-courthouse text-blue-600"></i>
+                        <span class="text-sm text-gray-700">Setiap sengketa akan diselesaikan di <strong>Pengadilan Negeri Purwokerto</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 14. KONTAK DAN LAYANAN PELANGGAN -->
+<div id="kontak" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">14</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Kontak dan Layanan Pelanggan</h2>
+    </div>
+
+    <div class="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8 shadow-lg">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 mb-3">
+                <i class="ph-fill ph-flower-lotus text-4xl text-brand-700"></i>
+                <h3 class="text-2xl font-serif font-bold text-brand-900 m-0">Tradify Nusantara</h3>
+            </div>
+            <p class="text-sm text-gray-600">Kami siap membantu Anda</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Alamat -->
+            <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center">
+                        <i class="ph-fill ph-map-pin text-white text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-brand-900 m-0">Alamat</h4>
+                </div>
+                <p class="text-sm text-gray-700 m-0">Jl. Pasar Manis, Kedung Wuluh<br>Purwokerto, Jateng 53134<br>Indonesia</p>
+            </div>
+
+            <!-- Email -->
+            <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center">
+                        <i class="ph-fill ph-envelope text-white text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-brand-900 m-0">Email</h4>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <div>
+                        <p class="text-gray-500 text-xs m-0">Umum:</p>
+                        <a href="mailto:syaifularifin41.57@gmail.com" class="text-brand-700 hover:underline font-medium">info@tradifynusantara.id</a>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-xs m-0">Customer Service:</p>
+                        <a href="mailto:syaifularifin41.57@gmail.com" class="text-brand-700 hover:underline font-medium">support@tradifynusantara.id</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                        <i class="ph-fill ph-whatsapp-logo text-white text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-brand-900 m-0">WhatsApp</h4>
+                </div>
+                <a href="https://wa.me/6289636191507" target="_blank" class="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-lg">
+                    <i class="ph-fill ph-phone"></i>
+                    <span>+62 896-3619-1507</span>
+                </a>
+            </div>
+
+            <!-- Jam Operasional -->
+            <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center">
+                        <i class="ph-fill ph-clock text-white text-xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-brand-900 m-0">Jam Operasional</h4>
+                </div>
+                <div class="space-y-1 text-sm text-gray-700">
+                    <p class="m-0"><strong>Senin - Sabtu</strong></p>
+                    <p class="m-0">09:00 - 17:00 WIB</p>
+                    <p class="text-xs text-gray-500 m-0 mt-2">⚠️ Minggu & Hari Libur: Tutup</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-yellow-50 px-4 py-2 rounded-full">
+                <i class="ph-fill ph-lightbulb text-yellow-600"></i>
+                <p class="text-sm text-yellow-800 m-0">Respon maksimal <strong>1x24 jam</strong> di hari kerja</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 15. PERNYATAAN PERSETUJUAN -->
+<div id="persetujuan" class="section-heading mb-12">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">15</div>
+        <h2 class="text-2xl font-serif font-bold text-brand-900 m-0">Pernyataan Persetujuan</h2>
+    </div>
+
+    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200">
+        <div class="flex items-start gap-4">
+            <i class="ph-fill ph-seal-check text-purple-600 text-4xl flex-shrink-0"></i>
+            <div>
+                <p class="text-gray-700 m-0 mb-4 text-lg">Dengan melakukan pemesanan atau menggunakan layanan <strong>Tradify Nusantara</strong>, Anda menyatakan bahwa:</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3 bg-white rounded-lg p-4">
+                        <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 text-sm">✓</div>
+                        <p class="text-gray-700 m-0">Anda telah <strong>membaca dan memahami</strong> seluruh syarat dan ketentuan ini dengan seksama</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 bg-white rounded-lg p-4">
+                        <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 text-sm">✓</div>
+                        <p class="text-gray-700 m-0">Anda <strong>menyetujui untuk terikat</strong> dengan semua ketentuan yang berlaku tanpa pengecualian</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 bg-white rounded-lg p-4">
+                        <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 text-sm">✓</div>
+                        <p class="text-gray-700 m-0">Anda memiliki <strong>kapasitas hukum</strong> yang sah untuk melakukan transaksi dan terikat kontrak</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-purple-100 rounded-lg">
+                    <p class="text-sm text-purple-900 m-0 text-center">
+                        <i class="ph-fill ph-info text-purple-600"></i>
+                        Jika Anda tidak setuju dengan ketentuan ini, harap <strong>tidak menggunakan</strong> layanan kami.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER DOKUMEN -->
+<div class="mt-16 pt-8 border-t-2 border-brand-200">
+    <div class="text-center space-y-4">
+        <div class="flex items-center justify-center gap-2">
+            <i class="ph-fill ph-flower-lotus text-3xl text-brand-700"></i>
+            <p class="text-lg font-serif font-bold text-brand-900 m-0">Tradify Nusantara</p>
+        </div>
+        <p class="text-sm text-gray-600 m-0">© 2025 Tradify Nusantara. All Rights Reserved.</p>
+        <p class="text-sm text-gray-500 m-0 flex items-center justify-center gap-1">
+            Dibuat dengan <i class="ph-fill ph-heart text-red-500"></i> untuk melestarikan warisan budaya Indonesia
+        </p>
+        
+        <div class="flex items-center justify-center gap-4 mt-6 text-sm text-brand-700">
+            <a href="index.html#home" class="hover:underline">Beranda</a>
+            <span>•</span>
+            <a href="kebijakan-privasi.html" class="hover:underline">Kebijakan Privasi</a>
+            <span>•</span>
+            <a href="index.html#contact" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition">Hubungi Kami</a>
+        </div>
+    </div>
+</div>
