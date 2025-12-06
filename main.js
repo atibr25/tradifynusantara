@@ -240,8 +240,8 @@ function checkout() {
         return;
     }
 
-    const phoneNumber = "6283838793816";
-    let message = `Halo Nusantara Crafts, saya ingin memesan:%0A%0A`;
+    const phoneNumber = "6289636191507";
+    let message = `Halo Tradify Nusantara, saya ingin memesan:%0A%0A`;
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -346,7 +346,7 @@ function sendContactMessage() {
         return;
     }
 
-    const phoneNumber = "6283838793816";
+    const phoneNumber = "6289636191507";
     const textString = `Halo Admin, ada pesan baru dari website:\n\n` +
                        `👤 *Nama:* ${name}\n` +
                        `📧 *Email:* ${email}\n` +
@@ -380,9 +380,9 @@ function subscribeNewsletter() {
     emailInput.value = '';
     
     // Optional: Send to WhatsApp
-    // const phoneNumber = "6283838793816";
-    // const message = `Halo Admin, ada pendaftaran newsletter baru:%0A%0AEmail: ${email}`;
-    // window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    const phoneNumber = "6289636191507";
+    const message = `Halo Admin, ada pendaftaran newsletter baru:%0A%0AEmail: ${email}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
 }
 
 // ==========================================
