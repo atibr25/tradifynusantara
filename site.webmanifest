@@ -1,0 +1,21 @@
+{
+  "name": "Tradify Nusantara",
+  "short_name": "Tradify",
+  "description": "Marketplace Kerajinan Tradisional Indonesia",
+  "start_url": "www.tradifynusantara.shop",
+  "display": "standalone",
+  "background_color": "#f9f6f3",
+  "theme_color": "#8c5030",
+  "icons": [
+    {
+      "src": "/asset/hero-batik.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/asset/keranjang-anyam1.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}
